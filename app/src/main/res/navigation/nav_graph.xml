@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/kingdomFragment">
+
+    <fragment
+        android:id="@+id/kingdomFragment"
+        android:name="com.example.animalskingdom.KingdomFragment"
+        android:label="fragment_kingdom"
+        tools:layout="@layout/fragment_kingdom" >
+        <action
+            android:id="@+id/action_kingdomFragment_to_familyFragment"
+            app:destination="@id/familyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/familyFragment"
+        android:name="com.example.animalskingdom.FamilyFragment"
+        android:label="fragment_family"
+        tools:layout="@layout/fragment_family" >
+        <argument
+            android:name="familyName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_familyFragment_to_speciesFragment"
+            app:destination="@id/speciesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/speciesFragment"
+        android:name="com.example.animalskingdom.SpeciesFragment"
+        android:label="fragment_species"
+        tools:layout="@layout/fragment_species" >
+        <argument
+            android:name="familyName"
+            app:argType="string" />
+    </fragment>
+</navigation>
