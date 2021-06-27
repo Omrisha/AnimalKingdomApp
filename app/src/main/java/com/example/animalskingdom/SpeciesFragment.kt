@@ -53,7 +53,7 @@ class SpeciesFragment : Fragment(), SearchView.OnQueryTextListener {
         val view = inflater.inflate(R.layout.fragment_species, container, false)
 
         val familyName = args.familyName
-        activity?.title = "$familyName"
+        activity?.title = familyName
         species = view.findViewById(R.id.specie_list)
         
         val serachBox = view.findViewById<SearchView>(R.id.search_box_specie)
@@ -99,7 +99,10 @@ class SpeciesFragment : Fragment(), SearchView.OnQueryTextListener {
     private fun loadLocally() {
         val list = ArrayList(speciesDictionary.values)
         speciesAdapter = SpeciesAdapter(list as MutableList<Specie>, View.OnClickListener {
-
+            val familyName = it.findViewById<TextView>(R.id.scientific_name_text).text.toString()
+            val specie = speciesDictionary[familyName]
+            val action = SpeciesFragmentDirections.actionSpeciesFragmentToSpecieInfoFragment(specie!!)
+            view?.findNavController()?.navigate(action)
         })
 
         species.apply {
