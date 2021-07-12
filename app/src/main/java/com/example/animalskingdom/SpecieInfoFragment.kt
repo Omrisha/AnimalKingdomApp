@@ -29,6 +29,7 @@ class SpecieInfoFragment : Fragment() {
 
         val speice = args.specieInfo
 
+        activity?.title = speice.AcceptedCommonName
         val scientific_name_text_field = view.findViewById<TextView>(R.id.scientific_name_text_field)
         scientific_name_text_field.text = speice.ScientificName
 
