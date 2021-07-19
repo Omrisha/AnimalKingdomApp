@@ -22,6 +22,7 @@ data class Specie(
     var PestStatus: String,
     var SpeciesEnvironment: String,
     var SpeciesProfileUrl: String,
+    var Image: ImageModel
 ) : DynamicSearchAdapter.Searchable, Serializable {
     override fun getSearchCriteria(): String {
         return AcceptedCommonName.lowercase(Locale.ROOT)
