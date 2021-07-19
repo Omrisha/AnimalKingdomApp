@@ -52,6 +52,7 @@
             android:textSize="14sp"/>
 
         <ImageView
+            android:id="@+id/share_button"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignParentRight="true"
